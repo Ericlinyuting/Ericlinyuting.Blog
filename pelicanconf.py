@@ -4,6 +4,8 @@ SITEURL = ""
 
 PATH = "content"
 
+THEME = "Hola"
+
 TIMEZONE = 'Asia/Taipei'
 
 DEFAULT_LANG = 'zh'
