@@ -10,6 +10,8 @@ TIMEZONE = 'Asia/Taipei'
 
 DEFAULT_LANG = 'zh'
 
+RELATIVE_URLS = True
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
