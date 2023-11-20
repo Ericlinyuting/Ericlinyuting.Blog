@@ -8,7 +8,7 @@ THEME = "Hola"
 
 TIMEZONE = 'Asia/Taipei'
 
-DEFAULT_LANG = 'zh'
+DEFAULT_LANG = 'en'
 
 RELATIVE_URLS = True
 
