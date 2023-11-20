@@ -4,7 +4,7 @@ SITEURL = ""
 
 PATH = "content"
 
-THEME = "Hola"
+THEME = "Augustine"
 
 TIMEZONE = 'Asia/Taipei'
 
