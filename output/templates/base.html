@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% block head %}
     <link rel="stylesheet" type="text/css" href="css/vendor.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon"/>
+{% endblock head %}
 </head>
 <body>
-    <h2>Categories on YTLin</h2>
-    <ul>
-    </ul>
+    {% block content %}
+        <p>部落格內容</p>
+    {% endblock content %}
 </body>
