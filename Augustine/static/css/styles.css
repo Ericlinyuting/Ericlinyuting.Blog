@@ -2535,7 +2535,15 @@ td:last-child {
     letter-spacing : .2em;
     position       : absolute;
     top            : calc(var(--vspace-1_5) * -1);
-    left           : var(--bar-padding);
+    /* left           : var(--bar-padding); */
+}
+
+.skill-bars li .background {
+    background : var(--color-1-lighter);
+    position   : relative;
+    height     : 100%;
+    /* overflow   : hidden; */
+    /* position   : relative; */
 }
 
 .skill-bars li .progress {
@@ -2543,6 +2551,14 @@ td:last-child {
     position   : relative;
     height     : 100%;
     /* overflow   : hidden; */
+    /* position   : relative; */
+}
+
+.skill-bars li .progress::before {
+    content          : "";
+    display          : block;
+    height           : 100%;
+    background-color : var(--color-text-dark);
     position   : relative;
 }
 
@@ -2560,7 +2576,7 @@ td:last-child {
     border-radius: 3px;
 }
 
-.skill-bars li .progress span::before {
+.skill-bars li .progress span::after {
     position: absolute;
     left: 50%;
     bottom: -5px;
@@ -2571,90 +2587,83 @@ td:last-child {
     content: "";
 }
 
-.skill-bars li .progress::before {
-    content          : "";
-    display          : block;
-    height           : 100%;
-    background-color : var(--color-text-dark);
-}
-
-.skill-bars li .percent5::before {
+.skill-bars li .percent5 {
     width : 5%;
 }
 
-.skill-bars li .percent10::before {
+.skill-bars li .percent10{
     width : 10%;
 }
 
-.skill-bars li .percent15::before {
+.skill-bars li .percent15{
     width : 15%;
 }
 
-.skill-bars li .percent20::before {
+.skill-bars li .percent20{
     width : 20%;
 }
 
-.skill-bars li .percent25::before {
+.skill-bars li .percent25{
     width : 25%;
 }
 
-.skill-bars li .percent30::before {
+.skill-bars li .percent30{
     width : 30%;
 }
 
-.skill-bars li .percent35::before {
+.skill-bars li .percent35{
     width : 35%;
 }
 
-.skill-bars li .percent40::before {
+.skill-bars li .percent40{
     width : 40%;
 }
 
-.skill-bars li .percent45::before {
+.skill-bars li .percent45{
     width : 45%;
 }
 
-.skill-bars li .percent50::before {
+.skill-bars li .percent50{
     width : 50%;
 }
 
-.skill-bars li .percent55::before {
+.skill-bars li .percent55{
     width : 55%;
 }
 
-.skill-bars li .percent60::before {
+.skill-bars li .percent60{
     width : 60%;
 }
 
-.skill-bars li .percent65::before {
+.skill-bars li .percent65{
     width : 65%;
 }
 
-.skill-bars li .percent70::before {
+.skill-bars li .percent70{
     width : 70%;
 }
 
-.skill-bars li .percent75::before {
+.skill-bars li .percent75{
     width : 75%;
 }
 
-.skill-bars li .percent80::before {
+.skill-bars li .percent80{
     width : 80%;
 }
 
-.skill-bars li .percent85::before {
+.skill-bars li .percent85{
     width : 85%;
 }
 
-.skill-bars li .percent90::before {
+.skill-bars li .percent90{
     width : 90%;
 }
 
-.skill-bars li .percent95::before {
+.skill-bars li .percent95{
     width : 95%;
 }
 
-.skill-bars li .percent100::before {
+.skill-bars li .percent100{
     width : 100%;
 }
 
@@ -3500,9 +3509,9 @@ img.u-pull-left {
     left : var(--gutter);
 }
 
-.s-about__skills .skill-bars li:nth-child(2n+2) strong {
+/* .s-about__skills .skill-bars li:nth-child(2n+2) strong {
     left : calc(var(--gutter) + var(--bar-padding));
-}
+} */
 
 .s-about__skills .skill-bars strong {
     font-weight    : 400;
@@ -3599,9 +3608,9 @@ img.u-pull-left {
         left : .4rem;
     }
 
-    .s-about__skills .skill-bars li:nth-child(2n+2) strong {
+    /* .s-about__skills .skill-bars li:nth-child(2n+2) strong {
         left : var(--bar-padding);
-    }
+    } */
 }
 
 @media screen and (max-width: 600px) {
