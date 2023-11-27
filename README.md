@@ -1,4 +1,7 @@
 # YTLinTaiwan.github.io
+pip freeze > requirements.txt
+pip install -r requirements.txt
+
 
 pelican -r -l
 
