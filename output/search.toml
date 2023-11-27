@@ -1,4 +1,8 @@
 [input]
 html_selector = "main"
 base_directory = "output"
-files = []
+
+[[input.files]]
+path = "my-first-article.html"
+url = "/my-first-article.html"
+title = "My First Article"
