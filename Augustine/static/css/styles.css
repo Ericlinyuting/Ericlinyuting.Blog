@@ -4169,7 +4169,8 @@ img.u-pull-left {
 
 .social-list svg path,
 .social-list svg circle {
-	fill      : rgba(255, 255, 255, 0.5);
+	/* fill      : rgba(255, 255, 255, 0.5); */
+    fill:var(--color-1);
 	transition: all 0.5s;
 }
 
