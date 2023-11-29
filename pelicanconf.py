@@ -34,6 +34,8 @@ SOCIAL = (
 )
 
 DEFAULT_PAGINATION = 10
+# enable Pelican to use plugins for additional features
+MARKUP = ('md', 'ipynb')
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True

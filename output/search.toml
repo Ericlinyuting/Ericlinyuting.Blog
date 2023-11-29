@@ -1,6 +1,6 @@
 [input]
 html_selector = "main"
-base_directory = "output"
+base_directory = "/Users/linyuting/CodeProject/Eric's Blog/output"
 
 [[input.files]]
 path = "my-first-article.html"

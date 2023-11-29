@@ -666,6 +666,69 @@ textarea {
     justify-content : center;
 }
 
+/* ------------------------- -------------------------------------------
+ * ## extra large devices (1201px and above)
+ * -------------------------------------------------------------------- */
+ .xl-1 {
+	flex : none;
+	width: 8.3333333333%;
+}
+
+.xl-2 {
+	flex : none;
+	width: 16.6666666667%;
+}
+
+.xl-3 {
+	flex : none;
+	width: 25%;
+}
+
+.xl-4 {
+	flex : none;
+	width: 33.3333333333%;
+}
+
+.xl-5 {
+	flex : none;
+	width: 41.6666666667%;
+}
+
+.xl-6 {
+	flex : none;
+	width: 50%;
+}
+
+.xl-7 {
+	flex : none;
+	width: 58.3333333333%;
+}
+
+.xl-8 {
+	flex : none;
+	width: 66.6666666667%;
+}
+
+.xl-9 {
+	flex : none;
+	width: 75%;
+}
+
+.xl-10 {
+	flex : none;
+	width: 83.3333333333%;
+}
+
+.xl-11 {
+	flex : none;
+	width: 91.6666666667%;
+}
+
+.xl-12 {
+	flex : none;
+	width: 100%;
+}
+
 /* --------------------------------------------------------------------
  * ## large screen devices 
  * -------------------------------------------------------------------- */
@@ -4068,6 +4131,46 @@ img.u-pull-left {
 
 .s-footer__bottom a {
     color : var(--color-1);
+}
+
+/* ------------------------------------------------------------------- 
+ * ## social list
+ * ------------------------------------------------------------------- */
+.social-list {
+	display    : flex;
+	align-items: center;
+	list-style : none;
+	margin     : 0;
+}
+
+.social-list li {
+	padding-left: 0;
+	margin-right: 1.2rem;
+}
+
+.social-list li:last-child {
+	margin-right: 0;
+}
+
+.social-list a {
+	display    : flex;
+	align-items: center;
+}
+
+.social-list a:focus svg path,
+.social-list a:hover svg path {
+	fill: var(--color-3);
+}
+
+.social-list svg {
+	height: var(--vspace-1);
+	width : var(--vspace-1);
+}
+
+.social-list svg path,
+.social-list svg circle {
+	fill      : rgba(255, 255, 255, 0.5);
+	transition: all 0.5s;
 }
 
 /* ------------------------------------------------------------------- 
