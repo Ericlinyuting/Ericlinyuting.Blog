@@ -34,6 +34,12 @@ SOCIAL = (
 )
 
 DEFAULT_PAGINATION = 10
+# enable Pelican to use plugins for additional features
+MARKUP = ("md", "ipynb")
+from pelican_jupyter import markup as nb_markup
+PLUGINS = [nb_markup]
 
+IGNORE_FILES = [".ipynb_checkpoints"]
+IPYNB_USE_METACELL = True
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
