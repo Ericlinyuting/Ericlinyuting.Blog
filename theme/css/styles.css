@@ -666,6 +666,69 @@ textarea {
     justify-content : center;
 }
 
+/* ------------------------- -------------------------------------------
+ * ## extra large devices (1201px and above)
+ * -------------------------------------------------------------------- */
+ .xl-1 {
+	flex : none;
+	width: 8.3333333333%;
+}
+
+.xl-2 {
+	flex : none;
+	width: 16.6666666667%;
+}
+
+.xl-3 {
+	flex : none;
+	width: 25%;
+}
+
+.xl-4 {
+	flex : none;
+	width: 33.3333333333%;
+}
+
+.xl-5 {
+	flex : none;
+	width: 41.6666666667%;
+}
+
+.xl-6 {
+	flex : none;
+	width: 50%;
+}
+
+.xl-7 {
+	flex : none;
+	width: 58.3333333333%;
+}
+
+.xl-8 {
+	flex : none;
+	width: 66.6666666667%;
+}
+
+.xl-9 {
+	flex : none;
+	width: 75%;
+}
+
+.xl-10 {
+	flex : none;
+	width: 83.3333333333%;
+}
+
+.xl-11 {
+	flex : none;
+	width: 91.6666666667%;
+}
+
+.xl-12 {
+	flex : none;
+	width: 100%;
+}
+
 /* --------------------------------------------------------------------
  * ## large screen devices 
  * -------------------------------------------------------------------- */
@@ -3221,6 +3284,151 @@ img.u-pull-left {
     }
 }
 
+/* ===================================================================
+ * # PAGEHEADER & PAGECONTENT
+ *
+ *
+ * ------------------------------------------------------------------- */
+ .s-pageheader {
+	padding-top     : var(--vspace-4);
+	padding-bottom  : var(--vspace-3);
+	background-color: #0D0A0B;
+    background-image: url(../images/blogs/blog-bg-02.jpg);
+    background-position: center, center;
+    position: relative;
+	text-align      : center;
+    color: rgba(255, 255, 255, 0.5);
+    min-height: 50.4rem;
+}
+
+.s-pageheader::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .75;
+    background-color: #0D0A0B;
+}
+
+.s-pageheader::after {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .5;
+    background: -moz-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.65) 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000', GradientType=0);
+    /* IE6-9 */
+}
+
+.s-pageheader .entry__title{
+    position: relative;
+    z-index: 2;
+    color: #FFFFFF;
+}
+
+.s-pageheader .entry__meta{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(var(--text-size) * 0.9);
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    margin-top: var(--vspace-1);
+}
+
+.entry__meta>[class*=entry__meta] {
+    display: flex;
+    align-items: center;
+    margin: 0 var(--vspace-0_75);
+}
+
+.s-pageheader .entry__title a {
+    color: #FFFFFF;
+}
+
+.s-pageheader .entry__meta a {
+    color: #FFFFFF;
+}
+
+.s-pageheader .entry__meta a:hover {
+    color: var(--color-1-light);
+}
+
+.s-pageheader .page-title {
+	margin-top : 0;
+	font-size  : clamp(5.2rem, 10vw, var(--text-huge-1));
+	line-height: 1.0465;
+	color      : var(--color-3);
+}
+
+.s-pageheader .page-title__small-type {
+	display      : block;
+	margin-bottom: 0;
+}
+
+.s-pagecontent {
+	/* padding-top   : var(--vspace-4); */
+	padding-bottom: var(--vspace-3);
+}
+
+.s-pagecontent .pageintro {
+	margin-bottom: var(--vspace-2_5);
+}
+
+.s-pagecontent .pageintro h1,
+.s-pagecontent .pageintro h2 {
+	margin-top   : 0;
+	margin-bottom: var(--vspace-1_5);
+}
+
+.s-pagecontent .pagination {
+	margin-top: var(--vspace-2);
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * pageheader & pagecontent
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+
+	.s-pagecontent .pageintro h1,
+	.s-pagecontent .pageintro h2 {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.s-pageheader {
+		padding-top   : var(--vspace-5);
+		padding-bottom: var(--vspace-2);
+	}
+
+	.s-pagecontent .pageintro {
+		margin-bottom: var(--vspace-1_5);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.s-pagecontent {
+		padding-top: var(--vspace-3);
+	}
+}
+
 
 
 /* ===================================================================
@@ -4068,6 +4276,47 @@ img.u-pull-left {
 
 .s-footer__bottom a {
     color : var(--color-1);
+}
+
+/* ------------------------------------------------------------------- 
+ * ## social list
+ * ------------------------------------------------------------------- */
+.social-list {
+	display    : flex;
+	align-items: center;
+	list-style : none;
+	margin     : 0;
+}
+
+.social-list li {
+	padding-left: 0;
+	margin-right: 1.2rem;
+}
+
+.social-list li:last-child {
+	margin-right: 0;
+}
+
+.social-list a {
+	display    : flex;
+	align-items: center;
+}
+
+.social-list a:focus svg path,
+.social-list a:hover svg path {
+	fill: var(--color-3);
+}
+
+.social-list svg {
+	height: var(--vspace-1);
+	width : var(--vspace-1);
+}
+
+.social-list svg path,
+.social-list svg circle {
+	/* fill      : rgba(255, 255, 255, 0.5); */
+    fill:var(--color-1);
+	transition: all 0.5s;
 }
 
 /* ------------------------------------------------------------------- 
