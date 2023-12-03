@@ -3284,6 +3284,78 @@ img.u-pull-left {
     }
 }
 
+/* ===================================================================
+ * # PAGEHEADER & PAGECONTENT
+ *
+ *
+ * ------------------------------------------------------------------- */
+ .s-pageheader {
+	padding-top     : var(--vspace-4);
+	padding-bottom  : var(--vspace-3);
+	background-color: var(--color-2-dark);
+	text-align      : center;
+}
+
+.s-pageheader .page-title {
+	margin-top : 0;
+	font-size  : clamp(5.2rem, 10vw, var(--text-huge-1));
+	line-height: 1.0465;
+	color      : var(--color-3);
+}
+
+.s-pageheader .page-title__small-type {
+	display      : block;
+	margin-bottom: 0;
+}
+
+.s-pagecontent {
+	/* padding-top   : var(--vspace-4); */
+	padding-bottom: var(--vspace-3);
+}
+
+.s-pagecontent .pageintro {
+	margin-bottom: var(--vspace-2_5);
+}
+
+.s-pagecontent .pageintro h1,
+.s-pagecontent .pageintro h2 {
+	margin-top   : 0;
+	margin-bottom: var(--vspace-1_5);
+}
+
+.s-pagecontent .pagination {
+	margin-top: var(--vspace-2);
+}
+
+/* ------------------------------------------------------------------- 
+ * responsive:
+ * pageheader & pagecontent
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1200px) {
+
+	.s-pagecontent .pageintro h1,
+	.s-pagecontent .pageintro h2 {
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.s-pageheader {
+		padding-top   : var(--vspace-5);
+		padding-bottom: var(--vspace-2);
+	}
+
+	.s-pagecontent .pageintro {
+		margin-bottom: var(--vspace-1_5);
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.s-pagecontent {
+		padding-top: var(--vspace-3);
+	}
+}
+
 
 
 /* ===================================================================
