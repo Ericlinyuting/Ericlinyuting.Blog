@@ -1,8 +1,10 @@
 # YTLinTaiwan.github.io
+
+# dependency package
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
-
+# run project
 pelican -r -l
 
 # How to publish to github
