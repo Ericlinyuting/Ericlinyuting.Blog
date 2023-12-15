@@ -25,6 +25,7 @@ nbformat==5.9.2
 ordered-set==4.1.0
 pandocfilters==1.5.0
 pelican==4.9.1
+pelican-ga-pageview==0.1.1
 pelican-jupyter==0.10.1
 platformdirs==4.1.0
 Pygments==2.17.2
