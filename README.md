@@ -6,6 +6,7 @@ pip install -r requirements.txt
 
 # Conda Environment
 conda env export > environment.yml
+conda env create environment.yml
 
 # run project
 pelican -r -l
