@@ -4,6 +4,9 @@
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
+# Conda Environment
+conda env export > environment.yml
+
 # run project
 pelican -r -l
 
