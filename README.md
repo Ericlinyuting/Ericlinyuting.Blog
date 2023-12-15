@@ -1,8 +1,14 @@
 # YTLinTaiwan.github.io
+
+# dependency package
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
+# Conda Environment
+conda env export > environment.yml
+conda env create environment.yml
 
+# run project
 pelican -r -l
 
 # How to publish to github
