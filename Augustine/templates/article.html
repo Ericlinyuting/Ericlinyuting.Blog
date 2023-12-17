@@ -1,42 +1,11 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js" >
-<head>
-      <!--- basic page needs
-    ================================================== -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>EricLin</title>
+{% extends "base.html" %}
+{% block head %}
+  {{ super() }}
+{% endblock head %}
 
-    <script>
-        document.documentElement.classList.remove('no-js');
-        document.documentElement.classList.add('js');
-    </script>
-
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJCT3PJPQ2"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-VJCT3PJPQ2');
-    </script>
-
-    <!-- CSS
-    ================================================== -->
-    <link rel="stylesheet" href="./theme/css/vendor.css">
-    <link rel="stylesheet" href="./theme/css/styles.css">
-
-    <!-- favicons
-    ================================================== -->
-    <link rel="apple-touch-icon" sizes="180x180" href="./theme/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./theme/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./theme/favicon-16x16.png">
-    <link rel="manifest" href="./theme/site.webmanifest">
-
-</head>
 
 <body>
+    {% block body %}
     <!-- preloader================================================== -->
     <div id="preloader">
         <div id="loader" class="line"></div>
@@ -115,7 +84,9 @@
     
                             <h1 class="entry__title">
                                 <a href="#0" title="">
-                                    My First Article
+                                    {% block title %}
+                                    {{ article.title }}
+                                    {% endblock title%}
                                 </a>
                             </h1> <!-- end entry__title -->
     
@@ -125,7 +96,9 @@
                                         <circle cx="12" cy="12" r="7.25" stroke="currentColor" stroke-width="1.5"></circle>
                                         <path stroke="currentColor" stroke-width="1.5" d="M12 8V12L14 14"></path>
                                     </svg>
-                                    2023-11-21
+                                    {% block date %}
+                                    {{ article.date.strftime('%Y-%m-%d')}}
+                                    {% endblock date %}
                                 </div>
                                 <div class="entry__meta-cat">
                                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -145,7 +118,9 @@
                 <div class="s-pagecontent entry__content">
                     <div class="row">
                         <div class="column xl-12">
-                            <p>Hello Pelican! This is my first Article.</p>
+                            {% block content %}
+                            {{ article.content }}
+                            {% endblock %}
                         </div>
                     </div>
                 </div> <!-- end entry__content -->
@@ -197,6 +172,7 @@
 
     <!-- Java Script
     ================================================== -->
-    <script src="./theme/js/plugins.js"></script>
-    <script src="./theme/js/main.js"></script>
+    <script src="{{ SITEURL }}/theme/js/plugins.js"></script>
+    <script src="{{ SITEURL }}/theme/js/main.js"></script>
+    {% endblock %}
 </body>
