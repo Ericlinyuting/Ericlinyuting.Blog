@@ -12,6 +12,16 @@
         document.documentElement.classList.add('js');
     </script>
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VJCT3PJPQ2"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-VJCT3PJPQ2');
+    </script>
+
     <!-- CSS
     ================================================== -->
     <link rel="stylesheet" href="./theme/css/vendor.css">
@@ -24,11 +34,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="./theme/favicon-16x16.png">
     <link rel="manifest" href="./theme/site.webmanifest">
 
-
-
-
-
 </head>
+
 <body>
     <!-- preloader================================================== -->
     <div id="preloader">
@@ -108,7 +115,8 @@
     
                             <h1 class="entry__title">
                                 <a href="#0" title="">
-YTLin - My First Article                                </a>
+                                    My First Article
+                                </a>
                             </h1> <!-- end entry__title -->
     
                             <div class="entry__meta">
@@ -117,7 +125,7 @@ YTLin - My First Article                                </a>
                                         <circle cx="12" cy="12" r="7.25" stroke="currentColor" stroke-width="1.5"></circle>
                                         <path stroke="currentColor" stroke-width="1.5" d="M12 8V12L14 14"></path>
                                     </svg>
-                                    December 15, 2022
+                                    2023-11-21
                                 </div>
                                 <div class="entry__meta-cat">
                                     <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
@@ -137,26 +145,12 @@ YTLin - My First Article                                </a>
                 <div class="s-pagecontent entry__content">
                     <div class="row">
                         <div class="column xl-12">
-<article>
-  <header>
-    <h2>
-      <a href="./my-first-article.html" rel="bookmark"
-         title="Permalink to My First Article">My First Article</a></h2>
- 
-  </header>
-  <p>Hello Pelican! This is my first Article.</p>
-  <footer>
-    <p>Published: <time datetime="2023-11-21T10:20:00+08:00">
-      二 21 11月 2023
-    </time></p>
-    <address>
-      By           <a href="./author/ericlin.html">EricLin</a>
-    </address>
-    <p>
-        Category: <a href="./category/post.html">post</a>
-    </p>
-  </footer>
-  </article>
+                            <p>Hello Pelican! This is my first Article.</p>
+<blockquote>
+<p>Pelican is a static site generator, written in Python, that requires no database or server-side logic. - Pelican Blog</p>
+</blockquote>
+<p>Here is some code:
+<code>print("Hello, World!")</code></p>
                         </div>
                     </div>
                 </div> <!-- end entry__content -->
