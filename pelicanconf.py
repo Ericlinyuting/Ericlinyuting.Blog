@@ -42,3 +42,5 @@ PLUGINS = [nb_markup]
 IPYNB_MARKUP_USE_FIRST_CELL = True
 
 IGNORE_FILES = [".ipynb_checkpoints"]
+
+IPYNB_SKIP_CSS=True
