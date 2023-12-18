@@ -8,6 +8,7 @@ entrypoints==0.4
 exceptiongroup==1.2.0
 fastjsonschema==2.19.0
 feedgenerator==2.1.0
+ghp-import==2.1.0
 idna==3.6
 importlib-metadata==7.0.0
 ipython-genutils==0.2.0
