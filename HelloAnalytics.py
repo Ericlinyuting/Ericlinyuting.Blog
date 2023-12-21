@@ -1,96 +1,91 @@
-"""A simple example of how to access the Google Analytics API."""
+"""Hello Analytics Reporting API V4."""
+
+import argparse
 
 from apiclient.discovery import build
-from oauth2client.service_account import ServiceAccountCredentials
+import httplib2
+from oauth2client import client
+from oauth2client import file
+from oauth2client import tools
+
+SCOPES = ['https://www.googleapis.com/auth/analytics.readonly']
+CLIENT_SECRETS_PATH = 'client_secret_40078492988-snqgv38ut2hlcofear7k5lqmrd979595.apps.googleusercontent.com.json' # Path to client_secrets.json file.
+VIEW_ID = '296171617'
 
 
-def get_service(api_name, api_version, scopes, key_file_location):
-    """Get a service that communicates to a Google API.
+def initialize_analyticsreporting():
+  """Initializes the analyticsreporting service object.
 
-    Args:
-        api_name: The name of the api to connect to.
-        api_version: The api version to connect to.
-        scopes: A list auth scopes to authorize for the application.
-        key_file_location: The path to a valid service account JSON key file.
+  Returns:
+    analytics an authorized analyticsreporting service object.
+  """
+  # Parse command-line arguments.
+  parser = argparse.ArgumentParser(
+      formatter_class=argparse.RawDescriptionHelpFormatter,
+      parents=[tools.argparser])
+  flags = parser.parse_args([])
 
-    Returns:
-        A service that is connected to the specified API.
-    """
+  # Set up a Flow object to be used if we need to authenticate.
+  flow = client.flow_from_clientsecrets(
+      CLIENT_SECRETS_PATH, scope=SCOPES,
+      message=tools.message_if_missing(CLIENT_SECRETS_PATH))
 
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(
-            key_file_location, scopes=scopes)
+  # Prepare credentials, and authorize HTTP object with them.
+  # If the credentials don't exist or are invalid run through the native client
+  # flow. The Storage object will ensure that if successful the good
+  # credentials will get written back to a file.
+  storage = file.Storage('analyticsreporting.dat')
+  credentials = storage.get()
+  if credentials is None or credentials.invalid:
+    credentials = tools.run_flow(flow, storage, flags)
+  http = credentials.authorize(http=httplib2.Http())
 
-    # Build the service object.
-    service = build(api_name, api_version, credentials=credentials)
+  # Build the service object.
+  analytics = build('analyticsreporting', 'v4', http=http)
 
-    return service
+  return analytics
 
-
-def get_first_profile_id(service):
-    # Use the Analytics service object to get the first profile id.
-
-    # Get a list of all Google Analytics accounts for this user
-    accounts = service.management().accounts().list().execute()
-
-    if accounts.get('items'):
-        # Get the first Google Analytics account.
-        account = accounts.get('items')[0].get('id')
-
-        # Get a list of all the properties for the first account.
-        properties = service.management().webproperties().list(
-                accountId=account).execute()
-
-        if properties.get('items'):
-            # Get the first property id.
-            property = properties.get('items')[0].get('id')
-
-            # Get a list of all views (profiles) for the first property.
-            profiles = service.management().profiles().list(
-                    accountId=account,
-                    webPropertyId=property).execute()
-
-            if profiles.get('items'):
-                # return the first view (profile) id.
-                return profiles.get('items')[0].get('id')
-
-    return None
+def get_report(analytics):
+  # Use the Analytics Service Object to query the Analytics Reporting API V4.
+  return analytics.reports().batchGet(
+      body={
+        'reportRequests': [
+        {
+          'viewId': VIEW_ID,
+          'dateRanges': [{'startDate': '7daysAgo', 'endDate': 'today'}],
+          'metrics': [{'expression': 'ga:sessions'}]
+        }]
+      }
+  ).execute()
 
 
-def get_results(service, profile_id):
-    # Use the Analytics Service Object to query the Core Reporting API
-    # for the number of sessions within the past seven days.
-    return service.data().ga().get(
-            ids='ga:' + profile_id,
-            start_date='7daysAgo',
-            end_date='today',
-            metrics='ga:sessions').execute()
+def print_response(response):
+  """Parses and prints the Analytics Reporting API V4 response"""
 
+  for report in response.get('reports', []):
+    columnHeader = report.get('columnHeader', {})
+    dimensionHeaders = columnHeader.get('dimensions', [])
+    metricHeaders = columnHeader.get('metricHeader', {}).get('metricHeaderEntries', [])
+    rows = report.get('data', {}).get('rows', [])
 
-def print_results(results):
-    # Print data nicely for the user.
-    if results:
-        print ('View (Profile):'), results.get('profileInfo').get('profileName')
-        print ('Total Sessions:'), results.get('rows')[0][0]
+    for row in rows:
+      dimensions = row.get('dimensions', [])
+      dateRangeValues = row.get('metrics', [])
 
-    else:
-        print ('No results found')
+      for header, dimension in zip(dimensionHeaders, dimensions):
+        print (header + ': ' + dimension)
+
+      for i, values in enumerate(dateRangeValues):
+        print ('Date range (' + str(i) + ')')
+        for metricHeader, value in zip(metricHeaders, values.get('values')):
+          print (metricHeader.get('name') + ': ' + value)
 
 
 def main():
-    # Define the auth scopes to request.
-    scope = 'https://www.googleapis.com/auth/analytics.readonly'
-    key_file_location = 'erics-blog-408106-476fb2b79b78.json'
 
-    # Authenticate and construct service.
-    service = get_service(
-            api_name='analytics',
-            api_version='v3',
-            scopes=[scope],
-            key_file_location=key_file_location)
-
-    profile_id = get_first_profile_id(service)
-    print_results(get_results(service, profile_id))
-
+  analytics = initialize_analyticsreporting()
+  response = get_report(analytics)
+  print_response(response)
 
 if __name__ == '__main__':
-    main()
+  main()

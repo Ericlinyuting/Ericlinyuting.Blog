@@ -28,7 +28,7 @@ DELETE_OUTPUT_DIRECTORY = True
 
 # Following items are often useful when publishing
 
-# DISQUS_SITENAME = ""
+DISQUS_SITENAME = "Ericlinyuting"
 
 # Google Page View Plugin setting
 # Reference: https://github.com/jhshi/pelican.plugins.ga_page_view
